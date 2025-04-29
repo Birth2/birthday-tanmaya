@@ -140,28 +140,38 @@
   </audio>
 
   <!-- JS: try autoplay + floating hearts -->
-  <script>
-    // Try autoplay
-    window.addEventListener('load', () => {
-      const audio = document.getElementById('birthday-audio');
-      setTimeout(() => {
-        audio.play().catch(err => {
-          console.log("Autoplay may be blocked, use play button.");
-        });
-      }, 500);
-    });
+ <script>
+  // Try autoplay
+  window.addEventListener('load', () => {
+    const audio = document.getElementById('birthday-audio');
+    setTimeout(() => {
+      audio.play().catch(err => {
+        console.log("Autoplay may be blocked, use play button.");
+      });
+    }, 500);
 
-    // Floating hearts
+    // Floating hearts from message box position
+    const messageBox = document.querySelector('.message-box');
+    const boxRect = messageBox.getBoundingClientRect();
     const numHearts = 30;
+
     for (let i = 0; i < numHearts; i++) {
       const heart = document.createElement('div');
       heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
+
+      // Random horizontal position within message box
+      const xOffset = Math.random() * boxRect.width;
+      heart.style.left = `${boxRect.left + xOffset}px`;
+
+      // Vertical position starts at message box
+      heart.style.top = `${boxRect.top + window.scrollY}px`;
+
       heart.style.animationDelay = Math.random() * 5 + 's';
       heart.style.width = heart.style.height = Math.random() * 15 + 10 + 'px';
       document.body.appendChild(heart);
     }
-  </script>
+  });
+</script>
 </body>
 </html>
 
