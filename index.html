@@ -6,30 +6,34 @@
   <title>Happy Birthday Tanmaya</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: url('T2.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-shadow: 1px 1px 4px #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      animation: fadeIn 2s ease-in;
-    }
-    h1 {
-      font-size: 3em;
-      margin: 0.5em 0;
-    }
-    p {
-      font-size: 1.5em;
-      max-width: 600px;
-      text-align: center;
-      margin: 0 20px;
-    }
+  margin: 0;
+  padding: 0;
+  background: url("T2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.top-heading {
+  margin-top: 40px;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.message-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  margin-top: 40px;
+  text-align: center;
+}
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -40,11 +44,13 @@
   </style>
 </head>
 <body>
+  <h1 class="top-heading"> Happy Birthday Tanmaya 🤍🥳</h1>
+
   <div class="message-box">
-    <h1>Happy Birthday Tanmaya 🎉</h1>
     <p>May all your wishes come true. May you gain prosperity, wisdom, and a healthy life.</p>
     <p>— From your well-wisher</p>
   </div>
+
   <audio autoplay loop>
     <source src="Happy Birthday.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
