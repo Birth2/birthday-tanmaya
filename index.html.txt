@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Tanmaya!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom right, #ffe4ec, #fefbd8);
+      color: #333;
+      overflow-x: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      animation: slideIn 1.5s ease-out;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      color: #ff69b4;
+    }
+    p.message {
+      font-size: 1.2em;
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section.gallery {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 2s ease-in;
+    }
+    section.gallery img, section.gallery video {
+      max-width: 300px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    section.gallery img:hover, section.gallery video:hover {
+      transform: scale(1.05);
+    }
+    .countdown {
+      text-align: center;
+      font-size: 1.5em;
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in;
+    }
+    audio {
+      display: block;
+      margin: 20px auto;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happiest Birthday, Tanmaya! 🎉</h1>
+    <p class="message">
+      May all your dreams come true, and may your life be filled with wisdom, prosperity, good health, and endless joy.<br />
+      Wishing you a year as wonderful as you are.<br />
+      — From your well-wisher
+    </p>
+  </header>
+
+  <audio controls autoplay loop>
+    <source src="your-birthday-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <section class="gallery">
+    <h2>🎀 Memories with Tanmaya 🎀</h2>
+    <img src="photo1.jpg" alt="Memory 1" />
+    <img src="photo2.jpg" alt="Memory 2" />
+    <video controls>
+      <source src="video1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <div class="countdown">
+    <p>⏳ Countdown to Tanmaya's next birthday:</p>
+    <p id="timer"></p>
+  </div>
+
+  <script>
+    function countdown() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const nextBirthday = new Date(`${currentYear}-04-29T00:00:00`);
+      if (now > nextBirthday) nextBirthday.setFullYear(currentYear + 1);
+      const diff = nextBirthday - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(countdown, 1000);
+    countdown();
+  </script>
+</body>
+</html>
