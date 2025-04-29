@@ -17,6 +17,7 @@
       animation: fadeIn 2s ease-in;
       overflow: hidden;
       text-align: center;
+      position: relative;
     }
 
     .top-heading {
@@ -30,40 +31,40 @@
       z-index: 1000;
     }
 
-   .message-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px 30px;
-  border-radius: 15px;
-  max-width: 600px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.2);
-  text-align: center;
-  z-index: 500;
-}
+    .play-button {
+      position: absolute;
+      bottom: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 900;
+    }
+
+    .message-box {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      text-align: center;
+      z-index: 800;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-   <audio id="birthday-audio" autoplay playsinline>
-  <source src="Happy Birthday.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
-<script>
-  window.addEventListener('load', () => {
-    const audio = document.getElementById('birthday-audio');
-    // Attempt to play audio after slight delay
-    setTimeout(() => {
-      audio.play().catch(err => {
-        console.log("Autoplay blocked:", err);
-      });
-    }, 500);
-  });
-</script>
-    }
     /* Floating hearts */
     .heart {
       position: absolute;
@@ -110,22 +111,35 @@
 <body>
   <h1 class="top-heading">Happy Birthday Tanmaya 🤍🥳</h1>
 
+  <!-- Play button for music -->
+  <button class="play-button" onclick="document.getElementById('birthday-audio').play()">
+    ▶️ Play Birthday Song
+  </button>
+
+  <!-- Message box at bottom -->
   <div class="message-box">
     <p>May all your wishes come true. May you gain prosperity, wisdom, and a healthy life.</p>
     <p>— From your well-wisher</p>
   </div>
 
-  <audio autoplay loop>
+  <!-- Audio element -->
+  <audio id="birthday-audio" autoplay playsinline>
     <source src="Happy Birthday.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-<button onclick="document.getElementById('birthday-audio').play()" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 10px 20px; font-size: 1rem; border-radius: 10px; background: rgba(255,255,255,0.2); color: white; border: none; cursor: pointer;">
-  ▶️ Play Birthday Song
-</button>
 
-  <!-- Floating hearts container -->
+  <!-- Try to play audio on load -->
   <script>
-    // Generate floating hearts
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('birthday-audio');
+      setTimeout(() => {
+        audio.play().catch(err => {
+          console.log("Autoplay may be blocked, use the play button.");
+        });
+      }, 500);
+    });
+
+    // Floating hearts
     const numHearts = 30;
     for (let i = 0; i < numHearts; i++) {
       const heart = document.createElement('div');
