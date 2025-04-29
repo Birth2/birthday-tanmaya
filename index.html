@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Tanmaya</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('T2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-shadow: 1px 1px 4px #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: fadeIn 2s ease-in;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0.5em 0;
+    }
+    p {
+      font-size: 1.5em;
+      max-width: 600px;
+      text-align: center;
+      margin: 0 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    audio {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Tanmaya! 🎉</h1>
+  <p>Wishing you a life filled with joy, prosperity, wisdom, and good health. May all your dreams come true!<br>— from your well wisher</p>
+  <audio controls autoplay loop>
+    <source src="Happy Birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
